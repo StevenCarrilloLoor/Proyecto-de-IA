@@ -1,0 +1,76 @@
+# Configuración del Sistema de Análisis de Baloncesto
+
+# Detección
+detection:
+  model: "yolov8n.pt"  # Opciones: yolov8n.pt, yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+  device: "cuda"  # "cuda" o "cpu"
+  image_size: 640
+  classes:
+    person: 0
+    sports_ball: 32
+
+# Tracking
+tracking:
+  method: "deepsort"  # "deepsort" o "bytetrack"
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+  max_distance: 0.2
+
+# Clasificación de Jugadas
+classification:
+  model_path: "data/models/play_classifier.pth"
+  sequence_length: 30  # Número de frames para analizar una jugada
+  classes:
+    - "tiro_libre"
+    - "triple"
+    - "contraataque"
+    - "pick_and_roll"
+    - "normal"
+  confidence_threshold: 0.6
+
+# Visualización
+visualization:
+  heatmap:
+    resolution: [1920, 1080]
+    alpha: 0.6
+    colormap: "hot"
+  trajectory:
+    line_thickness: 2
+    show_history: 50  # Número de frames de historia
+  statistics:
+    update_interval: 30  # frames
+
+# Video Processing
+video:
+  input_resolution: [1920, 1080]
+  output_resolution: [1920, 1080]
+  fps: 30
+  codec: "mp4v"
+
+# Court Detection (opcional para versiones futuras)
+court:
+  detect_lines: true
+  homography: false
+
+# Performance
+performance:
+  batch_size: 1
+  num_workers: 4
+  use_half_precision: false  # Usar FP16 para mayor velocidad
+
+# Paths
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  models: "data/models"
+  results: "results"
+  logs: "logs"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  save_logs: true
+  log_file: "logs/basketball_analysis.log"

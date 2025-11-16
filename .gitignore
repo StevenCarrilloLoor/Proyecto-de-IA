@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Data and Models
+data/raw/*.mp4
+data/raw/*.avi
+data/raw/*.mov
+data/processed/*.pkl
+data/models/*.pt
+data/models/*.pth
+data/models/*.weights
+*.h5
+
+# Logs and Results
+logs/
+*.log
+runs/
+outputs/
+results/
+experiments/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Environment variables
+.env
+.env.local
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
